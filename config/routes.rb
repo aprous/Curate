@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-
+  get("/", { :controller => "categories", :action => "index" })
 
   # Routes for the User account:
 
