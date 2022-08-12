@@ -16,11 +16,16 @@ class UserAuthenticationController < ApplicationController
     
       if are_they_legit == false
         redirect_to("/user_sign_in", { :alert => "Incorrect password." })
+
       else
+        if @user.buyer == 1 then 
         session[:user_id] = user.id
-      
+        redirect_to("/categories", { :notice => "Signed in successfully." })
+        else
+          if 
+        #session[:user_id] = user.id
         redirect_to("/", { :notice => "Signed in successfully." })
-      end
+      
     else
       redirect_to("/user_sign_in", { :alert => "No user with that email address." })
     end
